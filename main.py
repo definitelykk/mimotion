@@ -54,7 +54,7 @@ max_dict = {time_list[0]: 9999, time_list[1]: 19999, time_list[2]: 29999, time_l
 time_bj = datetime.datetime.today() + datetime.timedelta(hours=8)
 now = time_bj.strftime("%Y-%m-%d %H:%M:%S")
 headers = {'User-Agent': 'MiFit/5.3.0 (iPhone; iOS 14.7.1; Scale/3.00)'}
-
+push_title = ""
 
 #获取区域天气情况
 def getWeather():
@@ -265,6 +265,7 @@ def main(_user,_passwd,min_1, max_1):
     response = requests.post(url, data=data, headers=head).json()
     # print(response)
     result = f"[{now}]\n账号：{user[:3]}****{user[7:]}\n修改步数（{step}）[" + response['message'] + "]\n"
+    push_title = f"账号{user[7:]}\n修改步数（{step}）\n"
     #print(result)
     return result
 
@@ -309,7 +310,7 @@ def push_wx(desp=""):
     else:
         server_url = f"https://sc.ftqq.com/{sckey}.send"
         params = {
-            "text": '【小米运动步数修改】',
+            "text": push_title,
             "desp": desp
         }
 
