@@ -308,6 +308,7 @@ def push_wx(desp=""):
         print("设置不发送serverchan")
         return
     else:
+        print(push_title)
         server_url = f"https://sc.ftqq.com/{sckey}.send"
         params = {
             "text": push_title,
