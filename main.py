@@ -54,7 +54,7 @@ max_dict = {time_list[0]: 9999, time_list[1]: 19999, time_list[2]: 29999, time_l
 time_bj = datetime.datetime.today() + datetime.timedelta(hours=8)
 now = time_bj.strftime("%Y-%m-%d %H:%M:%S")
 headers = {'User-Agent': 'MiFit/5.3.0 (iPhone; iOS 14.7.1; Scale/3.00)'}
-push_title = ""
+global push_title
 
 #获取区域天气情况
 def getWeather():
